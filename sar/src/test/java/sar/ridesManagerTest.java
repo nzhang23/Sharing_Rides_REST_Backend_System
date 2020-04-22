@@ -20,6 +20,7 @@ public class ridesManagerTest {
 		jr.aid =  9;
 		assertFalse(rm.check_driver_id(jr, r.get_rid()));
 		rm.getallRide().clear();
+		assertNull(rm.check_driver_id(jr, r.get_rid()));
 	}
 
 	@Test
@@ -37,6 +38,7 @@ public class ridesManagerTest {
 		jr1.aid = 9;
 		assertFalse(ridesManager.check_rider_id(jr, r.get_rid(), jr1.jid));
 		rm.getallRide().clear();
+		assertNull(ridesManager.check_rider_id(jr, r.get_rid(), jr1.jid));
 	}
 
 	@Test
@@ -157,6 +159,8 @@ public class ridesManagerTest {
         assertEquals(T.get_date().date, r.get_date().date);
         assertEquals(T.get_location().from_city,r.get_location().from_city);
         assertEquals(T.get_max_passengers(),r.get_max_passengers());
+        assertFalse(rm.updateRide(T, 1000));
+        
         rm.getallRide().clear();
 	}
 
@@ -166,6 +170,7 @@ public class ridesManagerTest {
 		ridesManager rm = new ridesManager();
         rm.createRide(r);
         assertTrue(rm.deleteRide(r.get_rid()));
+        assertFalse(rm.deleteRide(10000));
         rm.getallRide().clear();
 	}
 
@@ -242,7 +247,7 @@ public class ridesManagerTest {
 		ridesManager rm = new ridesManager();
         rm.createRide(r);
         join_request jr = new join_request();
-        r.add_list_join_request(jr);
+        rm.createJoin_request(jr, r.get_rid());
         assertEquals(r.find_in_list_join_requests(jr.jid),jr);
         rm.getallRide().clear();
 	}
@@ -258,6 +263,7 @@ public class ridesManagerTest {
         jr1.ride_confirmed = true;
         rm.joint_request_ride_confirm_deny(jr1, r.get_rid(), jr.jid);
         assertTrue(jr.ride_confirmed);
+        assertFalse(rm.joint_request_ride_confirm_deny(jr1, 1000, 1000));
         rm.getallRide().clear();
 	}
 
@@ -272,6 +278,7 @@ public class ridesManagerTest {
         jr1.pickup_confirmed = true;
         rm.joint_request_pickup_confirm(jr1, r.get_rid(), jr.jid);
         assertTrue(jr.pickup_confirmed);
+        assertFalse(rm.joint_request_pickup_confirm(jr1, 10000, 1000));
         rm.getallRide().clear();
 	}
 
@@ -283,10 +290,18 @@ public class ridesManagerTest {
 		rm.createRide(r);
 		rm.createMessage(m, r.get_rid());
 		assertEquals(m.mid, r.get_list_messages().get(0).mid);
+		rm.getallRide().clear();
 	}
 
 	@Test
 	public void testViewAllMessage() {
+		
+		rides r = new rides();
+		ridesManager rm = new ridesManager();
+		messages m = new messages();
+		rm.createRide(r);
+		rm.createMessage(m, r.get_rid());
+		assertEquals(rm.viewAllMessage(r.get_rid()).get(0).mid, m.mid);
 		
 	}
 

@@ -74,6 +74,9 @@ public class ratingsTest {
 
 	@Test
 	public void testSet_comment() {
+		ratings r = new ratings();
+		r.set_comment("ff");
+		assertEquals(r.get_comment(),"ff");
 		
 	}
 
@@ -96,6 +99,7 @@ public class ratingsTest {
 	public void testMatchesId() {
 		ratings r =new ratings();
 		assertTrue(r.matchesId(r.getID()));
+		assertFalse(r.matchesId(1000));
 	}
 
 }

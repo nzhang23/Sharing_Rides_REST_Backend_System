@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 public class JsonManagerTest {
@@ -16,6 +16,9 @@ public class JsonManagerTest {
 	
 	@Test
 	public void testJsonManager() {
+		reportsManager rm = new reportsManager();
+		List<reports> r = rm.getAllReport();
+		assertEquals(r.get(0).get_pid(), 907);
 	}
 
 	@Test
@@ -251,11 +254,20 @@ public class JsonManagerTest {
 		accounts a = new accounts();
 		a.set_first_name("n");
 		rides r = new rides();
+		ratings e = new ratings();
+		e.set_driver_ratings();
+		e.set_rid(9);
+		a.get_detail().add(e);
 		r.set_aid(a.get_aid());
 		bi.getallAccount().add(a);
 		JsonObject s = jm.getRidesDetail_response(r, bi);
 		assertEquals(s.get("rid").getAsInt(), r.get_rid());
 		assertEquals(s.get("driver").getAsString(), a.get_first_name());
+		r.set_amount_per_passengers(10);
+		JsonObject m = jm.getRidesDetail_response(r, bi);
+		assertEquals(m.get("rid").getAsInt(), r.get_rid());
+		assertEquals(m.get("driver").getAsString(), a.get_first_name());
+		assertEquals(m.get("amount_per_passenger").getAsDouble(), r.get_amount_per_passengers());
 	}
 
 	@Test
@@ -275,5 +287,99 @@ public class JsonManagerTest {
 	    assertEquals(s.get(0).get("pid").getAsInt(),907);
 	    
 	}
-
+	
+	@Test
+	public void testSearchRides_response() {
+		 List<rides> a = new ArrayList<rides>();
+		 rides r = new rides();
+		 a.add(r);
+		 List<JsonObject> J = jm.searchRides_response(a);
+		 assertEquals(J.get(0).get("rid").getAsInt(), r.get_rid());
+		 
+	}
+	
+	@Test
+	public	void testReturntoJson() {
+		JsonObject id = new JsonObject();
+    	id.addProperty("aid", 1);
+    	String d = jm.returntoJson(id);
+    	String d1 = "{\n" + 
+    			"  \"aid\": 1\n" + 
+    			"}";
+    	assertEquals(d, d1);
+    	accounts a = new accounts();
+    	d = jm.returntoJson(a);
+    	Gson gson = new Gson();
+    	accounts b = gson.fromJson(d, accounts.class);
+    	assertEquals(a.get_aid(),b.get_aid());
+    	reports r = new reports(907,"ffff");
+    	d = jm.returntoJson(r);
+    	reports r1 = gson.fromJson(d, reports.class);
+    	assertEquals(r.get_pid(),r1.get_pid());
+    	List<JsonObject> s = new ArrayList<JsonObject>();
+    	d = jm.returntoJson(s);
+    	d1 ="[]";
+    	assertEquals(d, d1);
+    	
+    	
+	}
+	
+	@Test
+	public	void testReturntoJsonSerilizeNull() {
+		JsonObject id = new JsonObject();
+    	id.addProperty("aid", 1);
+    	String d = jm.returntoJsonSerilizeNull(id);
+    	String d1 = "{\n" + 
+    			"  \"aid\": 1\n" + 
+    			"}";
+    	assertEquals(d, d1);
+	}
+	
+	@Test
+	public	void testReturntoJsonAid(){
+        int id =1;
+    	String d = jm.returntoJsonAid(id);
+    	String d1 = "{\n" + 
+    			"  \"aid\": 1\n" + 
+    			"}";
+    	assertEquals(d, d1);
+	}
+	
+	@Test
+	public	void testReturntoJsonRid(){
+		    int id =1;
+	    	String d = jm.returntoJsonRid(id);
+	    	String d1 = "{\n" + 
+	    			"  \"rid\": 1\n" + 
+	    			"}";
+	    	assertEquals(d, d1);
+	}
+	@Test
+	public	void testReturntoJsonSid(){
+	        int id =1;
+		   	String d = jm.returntoJsonSid(id);
+		   	String d1 = "{\n" + 
+		   			"  \"sid\": 1\n" + 
+		   			"}";
+		   	assertEquals(d, d1);
 }
+	@Test
+	public	void testReturntoJsonJid(){
+	        int id =1;
+	     	String d = jm.returntoJsonJid(id);
+		   	String d1 = "{\n" + 
+		   			"  \"jid\": 1\n" + 
+		   			"}";
+		   	assertEquals(d, d1);
+}
+	@Test
+	public	void testReturntoJsonMid(){
+	        int id =1;
+		   	String d = jm.returntoJsonMid(id);
+		   	String d1 = "{\n" + 
+		   			"  \"mid\": 1\n" + 
+		   			"}";
+		   	assertEquals(d, d1);
+}
+}
+

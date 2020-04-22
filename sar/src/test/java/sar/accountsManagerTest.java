@@ -53,7 +53,7 @@ public class accountsManagerTest {
 	@Test
 	public void testChecknum() {
 		assertTrue(accountsManager.checknum("Ning"));
-		assertFalse(accountsManager.checknum("Ning23"));
+		assertFalse(accountsManager.checknum("Ning 23 (),./!@*&^%#@"));
 	}
 
 	@Test
@@ -106,6 +106,8 @@ public class accountsManagerTest {
 		 accountsManager am = new accountsManager();
 		 am.getallAccount().add(A);
 		 assertTrue(am.deleteAccount(A.get_aid()));
+		 am.getallAccount().add(A);
+		 assertFalse(am.deleteAccount(1000));
 		 am.getallAccount().clear();
 		 assertFalse(am.deleteAccount(A.get_aid()));
 	}
@@ -179,8 +181,8 @@ public class accountsManagerTest {
 		ridesManager rm = new ridesManager();
 		ratings R = new ratings();
 		join_request jr = new join_request();
-		accounts a = new accounts();
 		am.getallAccount().clear();
+		accounts a = new accounts();
 		am.getallAccount().add(a);
 		rm.getallRide().clear();
 		rm.getallRide().add(r);
@@ -199,6 +201,8 @@ public class accountsManagerTest {
 		R.set_sent_by_rid(16);
 		am.createRating(R, a.get_aid());
 		assertTrue(R.get_driver_ratings());
+		
+		am.createRating(R, a.get_aid());
 	}
 
 }

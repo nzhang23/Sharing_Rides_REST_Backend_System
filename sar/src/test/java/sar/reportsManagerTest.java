@@ -11,6 +11,7 @@ public class reportsManagerTest {
 
 	@Test
 	public void testGetAllReport() {
+		
 	}
 
 	@Test
@@ -49,8 +50,23 @@ public class reportsManagerTest {
 	}
 
 	@Test
-	public void testViewAllRides() {
-		
+	public void testViewAllRides() throws ParseException {
+		rides r = new rides();
+		date_info d = new date_info();
+		d.date = "15-Apr-2020";
+		r.set_date(d);
+		rides r1 = new rides();
+		date_info d1 = new date_info();
+		d1.date = "16-Apr-2020";
+		r1.set_date(d1);
+		ridesManager rm = new ridesManager();
+		rm.createRide(r);
+		rm.createRide(r1);
+		reportsManager RM = new reportsManager();
+		int pid =907;
+		reports R = RM.ViewAllRides(pid);
+		assertEquals(R.get_report_detail().get(0).count, 2);
+		rm.getallRide().clear();
 	}
 
 	@Test

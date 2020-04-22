@@ -23,7 +23,9 @@ public class reportsTest {
 
 	@Test
 	public void testGet_start_date() {
-		
+		reports r = new reports(907,"ff");
+		r.set_start_date("sss");
+		assertEquals(r.get_start_date(), "sss");
 	}
 
 	@Test
@@ -33,7 +35,9 @@ public class reportsTest {
 
 	@Test
 	public void testGet_end_date() {
-		
+		reports r = new reports(907,"ff");
+		r.set_end_date("sss");
+		assertEquals(r.get_end_date(), "sss");
 	}
 
 	@Test

@@ -111,6 +111,7 @@ public class ridesTest {
 		  r.get_list_join_request().clear();
 		  r.add_list_join_request(jr);
 		  assertEquals(jr, r.find_in_list_join_requests(jr.jid));
+		  assertTrue(r.find_in_list_join_requests(1000).isNull());
 	}
 
 	@Test
