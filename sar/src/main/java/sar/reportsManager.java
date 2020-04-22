@@ -180,7 +180,8 @@ public class reportsManager implements BoundaryInterfaceReports{
 				while(li1.hasNext()) {
     		    	rides l = li1.next();
     		    	Date date1 = new SimpleDateFormat("dd-MMM-yyyy").parse(l.get_date().date);
-    		    	if(!isRidesPostedorTaken(l)&&((date1.after(date)&&date1.before(date2))||date1.equals(date)||date1.equals(date2))) {
+    		    	if(!isRidesPostedorTaken(l)&&((date1.after(date)&&date1.before(date2))||
+    		    	 date1.equals(date)||date1.equals(date2))) {
     		    		i++;
     		    		find_by_date(rd, l, i);	
     		    	}

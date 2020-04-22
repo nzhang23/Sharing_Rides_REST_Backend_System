@@ -30,4 +30,16 @@ public interface BoundaryInterfaceJson {
    JsonObject getRidesDetail_response(rides a, BoundaryInterfaceAccounts bi);
    List<JsonObject> viewAllMessages_response(List<messages> list);
    List<JsonObject> viewAllReports_response(List<reports> list);
+   List<JsonObject> searchRides_response(List<rides> a);
+   String returntoJson(accounts s);
+   String returntoJson(reports r);
+   String returntoJson(List<JsonObject> s);
+   String returntoJson(JsonObject s);
+   String returntoJsonSerilizeNull(JsonObject s);
+   String returntoJsonAid(int i);
+   String returntoJsonRid(int i);
+   String returntoJsonSid(int i);
+   String returntoJsonJid(int i);
+   String returntoJsonMid(int i);
+
 }

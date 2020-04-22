@@ -128,7 +128,9 @@ public class accountsManager implements BoundaryInterfaceAccounts {
 		Iterator<accounts> li = Accounts.listIterator();
         while(li.hasNext()) {
             accounts l = li.next();
-            if(l.get_first_name().equalsIgnoreCase(s)||l.get_last_name().equalsIgnoreCase(s)||l.get_phone().equalsIgnoreCase(s)||l.get_first_name().contains(s)||l.get_last_name().contains(s)||l.get_phone().contains(s)) {
+            if(l.get_first_name().equalsIgnoreCase(s)||l.get_last_name().equalsIgnoreCase(s)||
+            l.get_phone().equalsIgnoreCase(s)||l.get_first_name().contains(s)||l.get_last_name().contains(s)||
+            l.get_phone().contains(s)) {
             	
             	list.add(l);
             }

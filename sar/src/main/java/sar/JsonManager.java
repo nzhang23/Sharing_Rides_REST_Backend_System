@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
 public class JsonManager implements BoundaryInterfaceJson {
@@ -348,5 +349,97 @@ public class JsonManager implements BoundaryInterfaceJson {
         }       
 		return s;
 	}
-
+	
+	@Override
+	public List<JsonObject> searchRides_response(List<rides> a){
+	  List<JsonObject> s = new ArrayList<JsonObject>();
+   	  Iterator<rides> li = a.listIterator();
+         while(li.hasNext()) {
+             rides l = li.next();
+       	     JsonObject J = new JsonObject();
+             J.addProperty("rid", l.get_rid());
+	         J.add("location_info", new Gson().toJsonTree(l.get_location()));
+	         J.add("date_time", new Gson().toJsonTree(l.get_date()));
+             s.add(J);
+         }
+         return s;
+	}
+	
+	@Override
+	public String returntoJson(accounts s){
+	    Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+		String d = gson1.toJson(s);
+		return d;
+	}
+	
+	@Override
+	public String returntoJson(reports r){
+	    Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+		String d = gson1.toJson(r);
+		return d;
+	}
+	
+	@Override
+	public String returntoJson(List<JsonObject> s){
+	    Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+		String d = gson1.toJson(s);
+		return d;
+	}
+	
+	@Override
+	public	String returntoJson(JsonObject s) {
+	    Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+		String d = gson1.toJson(s);
+		return d;
+	}
+	@Override
+	public String returntoJsonSerilizeNull(JsonObject s) {
+		Gson gson1 = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
+    	String s1 = gson1.toJson(s);
+    	return s1;
+	}
+	@Override
+	public String returntoJsonAid(int i) {
+		Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+    	JsonObject id = new JsonObject();
+    	id.addProperty("aid", i);
+    	String s = gson1.toJson(id);
+    	return s;
+	}
+	
+	@Override
+	public String returntoJsonRid(int i) {
+		Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+    	JsonObject id = new JsonObject();
+    	id.addProperty("rid", i);
+    	String s = gson1.toJson(id);
+    	return s;
+	}
+	
+	@Override
+	public String returntoJsonSid(int i) {
+		Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+    	JsonObject id = new JsonObject();
+    	id.addProperty("sid", i);
+    	String s = gson1.toJson(id);
+    	return s;
+	}
+	
+	@Override
+	public String returntoJsonJid(int i) {
+		Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+    	JsonObject id = new JsonObject();
+    	id.addProperty("jid", i);
+    	String s = gson1.toJson(id);
+    	return s;
+	}
+	
+	@Override
+	public String returntoJsonMid(int i) {
+		Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+    	JsonObject id = new JsonObject();
+    	id.addProperty("mid", i);
+    	String s = gson1.toJson(id);
+    	return s;
+	}
 }
