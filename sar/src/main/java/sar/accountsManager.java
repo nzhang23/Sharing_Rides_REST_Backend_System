@@ -183,7 +183,7 @@ public class accountsManager implements BoundaryInterfaceAccounts {
             				R.set_driver_ratings();
             				R.set_first_name(getName(R.get_sent_by_id()));
             				l.add_detail(R);
-            				l.set_rides(l.get_rides()+1);
+            				//l.set_rides(l.get_rides()+1);
             				
             				return true;
             			}
@@ -193,7 +193,7 @@ public class accountsManager implements BoundaryInterfaceAccounts {
             				R.set_rider_ratings();
             				R.set_first_name(getName(R.get_sent_by_id()));
             				l.add_detail(R);
-            				l.set_rides(l.get_rides()+1);
+            				//l.set_rides(l.get_rides()+1);
             				return true;
             			}
             			return false;

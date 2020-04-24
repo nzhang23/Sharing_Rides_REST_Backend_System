@@ -212,14 +212,17 @@ public class ridesManager implements BoundaryInterfaceRides {
 	
 	@Override
 	public boolean joint_request_ride_confirm_deny(join_request T, int lrid, int ljid) {
-		rides r = findRide(lrid);
-		
+		    rides r = findRide(lrid);
+		    accountsManager am = new accountsManager();
+		    accounts a = am.getAccountDetail(T.aid);
 			List<join_request> list = r.get_list_join_request();
 			Iterator<join_request> li = list.listIterator();
 		    while(li.hasNext()) {
 		    	join_request l = li.next();
 		        if(l.jid == ljid) {
 		        	l.ride_confirmed=T.ride_confirmed;
+		        	if(T.ride_confirmed == true)
+		        		a.set_rides(a.get_rides()+1);
 		        	return true;
 		        }
 		    }
@@ -229,12 +232,16 @@ public class ridesManager implements BoundaryInterfaceRides {
 	@Override
 	public boolean joint_request_pickup_confirm(join_request T, int lrid, int ljid) {
 		rides r = findRide(lrid);
+		accountsManager am = new accountsManager();
+		accounts a = am.getAccountDetail(T.aid);
 		List<join_request> list = r.get_list_join_request();
 		Iterator<join_request> li = list.listIterator();
 	    while(li.hasNext()) {
 	    	join_request l = li.next();
 	        if(l.jid == ljid) {
 	        	l.pickup_confirmed=T.pickup_confirmed;
+	        	if(T.pickup_confirmed==true)
+	        		a.set_rides(a.get_rides()+1);
 	        	return true;
 	        }
 	    }
