@@ -1,0 +1,18 @@
+{
+  "pid": <pid1>,
+  "name": "Rides posted between two dates",
+  "start_date": "",
+  "end_date": "",
+  "rides": 2,
+  "detail": [{
+      "from_zip": "60010",
+      "to_zip": "53202",
+      "count": 1
+    },
+    {
+      "from_zip": "60010",
+      "to_zip": "",
+      "count": 1
+    }
+  ]
+}

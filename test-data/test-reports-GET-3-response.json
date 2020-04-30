@@ -1,0 +1,12 @@
+{
+  "pid": <pid1>,
+  "name": "Rides posted between two dates",
+  "start_date": "15-Apr-2020",
+  "end_date": "",
+  "rides": 1,
+  "detail": [{
+      "from_zip": "60010",
+      "to_zip": "",
+      "count": 1
+    }]
+}

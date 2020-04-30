@@ -1,0 +1,7 @@
+{
+	"first_name": "Jane",
+	"last_name": "Doe",
+	"phone": "414-312-0000",
+	"picture": "http://example.com/images/jane-doe.jpg",
+	"is_active": false
+}

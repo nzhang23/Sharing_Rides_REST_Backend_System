@@ -1,0 +1,27 @@
+[{
+    "rid": <rid1>,
+    "location_info": {
+      "from_city": "Barrington",
+      "from_zip": "60010",
+      "to_city": "Milwaukee",
+      "to_zip": "53202"
+    },
+    "date_time": {
+      "date": "14-Apr-2020",
+      "time": "09:00"
+    }
+  },
+  {
+    "rid": <rid2>,
+    "location_info": {
+      "from_city": "Barrington",
+      "from_zip": "60010",
+      "to_city": "Springfield",
+      "to_zip": ""
+    },
+    "date_time": {
+      "date": "17-Apr-2020",
+      "time": "07:30"
+    }
+  }
+]

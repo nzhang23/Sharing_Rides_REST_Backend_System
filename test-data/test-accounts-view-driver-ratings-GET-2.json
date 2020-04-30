@@ -1,0 +1,15 @@
+{
+  "aid": <aid1>,
+  "first_name": "John",
+  "rides": 1,
+  "ratings": 1,
+  "average_rating": 4,
+  "detail": [{
+      "rid": <rid1>,
+      "sent_by_id": <aid2>,
+      "first_name": "Jane",
+      "date": <date>,
+      "rating": 4,
+      "comment": "John drives too fast, I was scared out of my mind."
+    }]
+}

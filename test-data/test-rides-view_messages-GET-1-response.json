@@ -1,0 +1,13 @@
+[{
+    "mid": <mid1>,
+    "sent_by_aid": <aid2>,
+    "date": <date>,
+    "body": "John, I just sent you a request to join your ride to Milwaukee on 14-Apr-2020. Two passenges.  I hope that's ok."
+  },
+  {
+    "mid": <mid2>,
+    "sent_by_aid": <aid1>,
+    "date": <date>,
+    "body": "Jane, that's fine, I'll approve your request. Pick-up place: post office in Barrington."
+  }
+]

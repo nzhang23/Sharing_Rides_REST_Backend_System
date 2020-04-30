@@ -1,0 +1,19 @@
+[{
+    "aid": <aid1>,
+    "name": "John Smith",
+    "date_created": <date>,
+    "is_active": true
+  },
+  {
+    "aid": <aid2>,
+    "name": "Jane Doe",
+    "date_created": <date>,
+    "is_active": true
+  },
+  {
+    "aid": <aid3>,
+    "name": "Alice Bloggs",
+    "date_created": <date>,
+    "is_active": false
+  }
+]

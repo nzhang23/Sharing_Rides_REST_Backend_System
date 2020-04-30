@@ -1,0 +1,23 @@
+{
+  "aid": <aid1>,
+  "location_info": {
+    "from_city": "Barrington",
+    "from_zip": "60010",
+    "to_city": "Springfield",
+    "to_zip": ""
+  },
+  "date_time": {
+    "date": "17-Apr-2020",
+    "time": "07:30"
+  },
+  "car_info": {
+    "make": "Honda",
+    "model": "CR-V",
+    "color": "Blue",
+    "plate_state": "IL",
+    "plate_serial": "CATNIP1"
+  },
+  "max_passengers": 1,
+  "amount_per_passenger": null,
+  "conditions": "No more than one carry on per passenger. No pets. No smoking."
+}

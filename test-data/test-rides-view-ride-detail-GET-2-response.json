@@ -1,0 +1,35 @@
+{
+  "rid": <rid2>,
+  "location_info": {
+    "from_city": "Barrington",
+    "from_zip": "60010",
+    "to_city": "Springfield",
+    "to_zip": ""
+  },
+  "date_time": {
+    "date": "17-Apr-2020",
+    "time": "07:30"
+  },
+  "car_info": {
+    "make": "Honda",
+    "model": "CR-V",
+    "color": "Blue",
+    "plate_state": "IL",
+    "plate_serial": "CATNIP1"
+  },
+  "max_passengers": 1,
+  "amount_per_passenger": null,
+  "conditions": "No more than one carry on per passenger. No pets. No smoking.",
+  "driver": "John",
+  "driver_picture": "http://example.com/images/john-smith.jpeg",
+  "rides": 1,
+  "ratings": 1,
+  "average_rating": 4,
+  "comments_about_driver": [{
+      "rid": <rid1>,
+      "date": "14-Apr-2020",
+      "rating": 4,
+      "comment": "John drives too fast, I was scared out of my mind."
+    }
+  ]
+}
